@@ -2,14 +2,18 @@
 <head>
     <title></title>
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+      <script type="text/javascript" src="assets/plugins/bootstrap/js/popper.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/jquery/jquery.plugin.js"></script>
     <script>
       function buscar() { 
         var formData = new FormData();
         //formData.append("id_cliente", "hola mundo");
 
           $.ajax({
-              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
-              url: "indicadores_inicio.php",
+              url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
+              //url: "indicadores_inicio.php",
               type: "post",
               dataType: "html",
               data: formData,
@@ -21,7 +25,20 @@
             $("#ind_inicio").html(res1);
           });
             
-      };
+      }
+       $(document).ready(function(){
+         var url="indicadores_inicio.php";
+         $.getJSON(url,function(result){
+           console.log(result);
+           $.each(result, function(i, field){
+           var id=field.id_oficina;
+           var title=field.nombre_oficina;
+           var duration=field.direccion_oficina;
+           var price=field.jefe_oficina;
+           $("#listview").append("<a class='item' href='form.html?id="+id+"&title="+title+"&duration="+duration+"&price="+price+"'><span class='item-note'>$"+price+"</span><h2>"+ title + " </h2><p>"+ duration +"</p></a>");
+           });
+         });
+       });
     </script>
 </head>
 <body >
@@ -62,9 +79,8 @@
 </nav><hr>
 <div class="">
   <div  id="ind_inicio" ></div>
+   <ul class="list" id="listview"></ul>
 </div>
 </body>
-  <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-  <script src="assets/plugins/jquery/jquery.min.js"></script>
-  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
 </html>
