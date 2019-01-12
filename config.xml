@@ -9,6 +9,6 @@
     </author>
     <content src="index.html" />
     <icon src="logo.png"/>
-    <access origin="http://proyectoues.byethost12.com/*" />
+    <access origin="http://proyectoues.byethost12.com/*"  subdomains="true"/>
     <engine name="browser" spec="^5.0.4" />
 </widget>
