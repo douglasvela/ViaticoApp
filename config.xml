@@ -10,6 +10,6 @@
     <content src="index.html" />
     <icon src="logo.png"/>
     <access origin="*" />
-    <access origin="http://192.168.0.16" />  
+    <access origin="http://proyectoues.byethost12.com" />  
     <engine name="browser" spec="^5.0.4" />
 </widget>
