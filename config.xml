@@ -17,6 +17,7 @@
     <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
     <access origin="http://185.27.134.10/*"/>
     <access origin="*" />
+    <access origin="*" subdomains="true" />
     <plugin name="cordova-plugin-whitelist" source="npm" />
     
     <allow-navigation href="*" />
