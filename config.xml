@@ -18,6 +18,8 @@
     <access origin="http://185.27.134.10/*"/>
     <access origin="*" />
     <access origin="*" subdomains="true" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <plugin name="cordova-plugin-whitelist" source="npm" />
     
     <allow-navigation href="*" />
