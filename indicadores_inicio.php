@@ -1,9 +1,5 @@
-<?php
-include "db.php";
-$data=array();
-$q=mysqli_query($con,"select * from vyp_oficinas");
-while ($row=mysqli_fetch_object($q)){
- $data[]=$row;
-}
-echo json_encode($data);
+<?php 
+	header("Access-Control-Allow-Origin: *");
+	$f = date("Y-m-d");
+	echo $f;
 ?>
