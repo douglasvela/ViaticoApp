@@ -1,6 +1,9 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="../../assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
  <?php
@@ -46,19 +49,19 @@
 
 		$cuerpo = '
 		<h6>NR: Empleado: '.($key[1]).'</h6>
-			<table  class="" border="1">
+			<table  class="table table-striped">
 				
 				<thead >
 
 					<tr>
-						<th align="center" rowspan="2">Fecha Solicitud</th>
-						<th align="center" rowspan="2">Fecha Inicio Mision</th>
-						<th align="center" rowspan="2">Fecha Fin Mision</th>
-						<th align="center" rowspan="2">Actividad</th>
-						<th align="center" rowspan="2">Detalle Actividad</th>
-						<th align="center" colspan="3">Tipo</th>
-						<th align="center" rowspan="2">Total</th>
-						<th align="center" rowspan="2">Estado</th>
+						<th scope="col" align="center" rowspan="2">Fecha Solicitud</th>
+						<th scope="col" align="center" rowspan="2">Fecha Inicio Mision</th>
+						<th scope="col" align="center" rowspan="2">Fecha Fin Mision</th>
+						<th scope="col" align="center" rowspan="2">Actividad</th>
+						<th scope="col" align="center" rowspan="2">Detalle Actividad</th>
+						<th scope="col" align="center" colspan="3">Tipo</th>
+						<th scope="col" align="center" rowspan="2">Total</th>
+						<th  scope="col" align="center" rowspan="2">Estado</th>
 						 
 					</tr>
 					<tr>
