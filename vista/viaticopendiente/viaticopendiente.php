@@ -58,11 +58,8 @@
 						<th scope="col" align="center" rowspan="2">Fecha Inicio Mision</th>
 						<th scope="col" align="center" rowspan="2">Fecha Fin Mision</th>
 						<th scope="col" align="center" rowspan="2">Actividad</th>
-						<th scope="col" align="center" rowspan="2">Detalle Actividad</th>
 						<th scope="col" align="center" colspan="3">Tipo</th>
-						<th scope="col" align="center" rowspan="2">Total</th>
-						<th  scope="col" align="center" rowspan="2">Estado</th>
-						 
+						<th scope="col" align="center" rowspan="2">Total</th>						 
 					</tr>
 					<tr>
 						<th align="center">Viaticos</th>
@@ -82,8 +79,7 @@
 					
 					//$estado = $this->Reportes_viaticos_model->obtenerDetalleEstado($viaticos->estado);
 					//foreach ($estado->result() as $estado_detalle) {}
-					//$actividad = $this->Reportes_viaticos_model->obtenerDetalleActividad($viaticos->id_actividad_realizada);
-					//foreach ($actividad->result() as $actividad_detalle) {}
+					 
 					$query_consulta_totales=mysqli_query($conexion,"SELECT sum(`viatico`) as viatico,sum(`pasaje`) as pasaje,sum(`alojamiento`) as alojamiento, (sum(`viatico`) + sum(`pasaje`) + sum(`alojamiento`)) as total FROM `vyp_empresa_viatico` WHERE `id_mision`='144'");
 					while( $fila=mysqli_fetch_array($query_consulta_totales)){
 			            $totales[] = $fila;
@@ -101,13 +97,10 @@
 							<td>'.date('d-m-Y',strtotime($viaticos[3])).'</td>
 							<td>'.date('d-m-Y',strtotime($viaticos[4])).'</td>
 							<td></td>
-							<td></td>
 							<td>$'.number_format($totales_detalle[0],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[1],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[2],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[3],2,".",",").'</td>
-							<td></td>
-							
 						</tr>
 						';
 					
