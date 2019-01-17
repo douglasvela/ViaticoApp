@@ -49,6 +49,7 @@
 
 		$cuerpo = '
 		<h6>NR: Empleado: '.($key[1]).'</h6>
+		<div class="table-responsive">
 			<table  class="table table-striped">
 				
 				<thead >
@@ -112,17 +113,15 @@
 				}
 				$cuerpo .= '
 					<tr>
-							<th colspan="5" align="right">Total</th>
+							<th colspan="4" align="right">Total</th>
 							<th>$'.number_format($suma_viaticos,2,".",",").'</th>
 							<th>$'.number_format($suma_pasajes,2,".",",").'</th>
 							<th>$'.number_format($suma_alojamientos,2,".",",").'</th>
 							<th>$'.number_format($suma_total,2,".",",").'</th>
-							<th></th>
-							
 						</tr>
 				</tbody>
 			</table>
-
+			</div>
         ';  
 
 
