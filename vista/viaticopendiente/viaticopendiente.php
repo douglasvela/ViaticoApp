@@ -46,7 +46,7 @@
 
 		$cuerpo = '
 		<h6>NR: Empleado: '.($key[1]).'</h6>
-			<table  class="" border="1" style="width:100%">
+			<table  class="" border="1">
 				
 				<thead >
 
