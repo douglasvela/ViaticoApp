@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
 	<script type="text/javascript">
 
-		function mostrarReporteEmpleado(tipo){
+		/*function mostrarReporteEmpleado(tipo){
 	       var id = $("#id_empleado").val();
 	       var xhr = "";
 	       if(id==""){
@@ -21,7 +22,7 @@
 	        }
 	       	
 	       }
-	     }
+	     }*/
 	     function iniciar() { 
 	     }
 	</script>
@@ -88,4 +89,5 @@
 
 
 </body>
+	
 </html>
