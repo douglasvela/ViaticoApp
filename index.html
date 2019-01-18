@@ -57,8 +57,30 @@
             $("#ind_inicio").html(res1);
           }); 
       } 
-      function myFunc(){
-       
+      function inicio_sesion(){
+        var formData = new FormData();
+        formData.append("usuario", $("#usuario").val());
+        formData.append("contrasenia", $("#contrasenia").val());
+        $.ajax({
+              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
+              url: "http://viaticos.proyectotesisuesfmp.com/controlador/inicio_sesion.php",
+              type: "post",
+              dataType: "html",
+              data: formData,
+              crossDomain: true,
+              cache: false,
+              contentType: false,
+              processData: false
+          })
+          .done(function(res1){
+            if(res1=="correcto"){
+              $("#form_menu").show();
+              $("#form_inicio_sesion").hide();
+            }else{
+              $("#form_menu").hide();
+              $("#form_inicio_sesion").show();
+            }
+          });
       }
     </script>
 </head>
@@ -75,7 +97,7 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" style="display:none" id="form_menu"> 
+    <div   style="display:none" id="form_menu"> 
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light"> 
                 <div class="navbar-collapse">
@@ -126,20 +148,20 @@
                <div class="col-lg-4"  style="display: block;">
                     <div class="card">
                         <div class="card-body b-t">
-                        <center><h4 class="card-title m-b-0">Inicio de Sesión</h4></center>
+                        <center><h4 class="card-title m-b-0">Inicio de Sesión</h4></center><br>
                           <div class="form-group">
-                            <label>Usuario</label>
-                            <input type="text" class="form-control " value="Some text value...">
+                            
+                            <input type="text" id="usuario" class="form-control " placeholder="Nombre de usuario">
                           </div>
                           <div class="form-group">
-                            <label>Contraseña</label>
-                            <input type="password" class="form-control" value="password">
+                            
+                            <input type="password" id="contrasenia" class="form-control" placeholder="Contraseña">
                           </div>
+                          <button type="button" onclick="inicio_sesion();" class="btn waves-effect waves-light btn-primary"><i class="ti-power-off"></i> Ingresar</button>
                         </div>
                     </div>
                 </div>
               </div>
-            <br><br>
             <footer class="footer"> © 2019 UES-FMP </footer>
         </div>
       </div>

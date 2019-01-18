@@ -4,9 +4,9 @@
     id          = "com.phone.exa"
     versionCode = "10"
     version     = "1.0.0" >
-    <name>AppHolaMundo</name>
+    <name>ViaticoApp</name>
     <description>
-       esta es una app
+       App para consultar viáticos y pasajes
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Douglas Recinos
