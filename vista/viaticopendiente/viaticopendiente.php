@@ -4,7 +4,7 @@
 
 	<script type="text/javascript">
 
-		function mostrarReporteEmpleado(funcion){
+		function mostrarReporteVPendiente(funcion){
 	       var formData = new FormData();
 	       formData.append("funcion", funcion);
 	        $.ajax({
@@ -25,8 +25,6 @@
 	</script>
 </head>
 <body>
-
-	
 	    <div class="container-fluid">
 	        <div class="row page-titles">
 	            <div class="align-self-center" align="center">
@@ -42,7 +40,7 @@
 	                    <div class="card-body b-t">
 	                    	<div class="form-group">
 							 	<h5>Empleado: <span class="text-danger">*</span></h5>
-                                <select id="id_empleado" name="id_empleado" class="select2" onchange="" style="width: 100%" required>
+                                <select id="id_empleado" name="id_empleado" class="form-control" onchange="" style="width: 100%" required>
                                 <option value=''>[Elija el empleado]</option>
                                 <?php
                                 	$server   = "162.241.252.245";
@@ -59,12 +57,12 @@
 								?>
 						<option class="m-l-50" value="<?php echo $fila2[7]; ?>" <?php /*if(isset($fila3)){ if($fila2->nr==$fila3->nr){ echo "selected"; }}*/ ?>><?php echo preg_replace ('/[ ]+/', ' ',$fila2[1]." ".$fila2[2]." ".$fila2[4]." ".$fila2[5]) ?></option>
 								<?php
-									}
+									} mysqli_close($conexion);
                                 ?>
                                 </select>
                             </div>
                             <div align="right">
-                            <button type="button" onclick="mostrarReporteEmpleado('reporte_viatico_pendiente_empleado')" class="btn waves-effect waves-light btn-success2"><i class="mdi mdi-view-dashboard"></i> Vista Previa</button>
+                            <button type="button" onclick="mostrarReporteVPendiente('reporte_viatico_pendiente_empleado')" class="btn waves-effect waves-light btn-success2"><i class="mdi mdi-view-dashboard"></i> Vista Previa</button>
                             </div>
 	                    </div>
 	                </div>
@@ -84,9 +82,5 @@
 	            </div>
 	        </div>
 	    </div>
-	
-
-
 </body>
-	
 </html>

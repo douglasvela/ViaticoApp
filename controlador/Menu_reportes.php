@@ -5,14 +5,15 @@ switch($funcion) {
             echo reporte_viatico_pendiente_empleado();
             break;
     }
-
-function reporte_viatico_pendiente_empleado(){
-	$server   = "162.241.252.245";
+		$server   = "162.241.252.245";
       $database = "proyedk4_WPZF0";
         $usuario  = "proyedk4_WPZF0";
         $clave    = "MAYO_nesa94"; 
 
       $conexion = mysqli_connect($server,$usuario,$clave,$database); 
+      
+function reporte_viatico_pendiente_empleado(){
+	
       /*$query_consulta=mysqli_query($conexion,"select * from org_usuario");
       while( $fila=mysqli_fetch_array($query_consulta)){
             $data[] = $fila;
@@ -124,8 +125,8 @@ function reporte_viatico_pendiente_empleado(){
 			</div>
         ';  
 
-
+         mysqli_close($conexion);
       echo $cabecera_vista.=$cuerpo;
-      mysqli_close($conexion);
+     
 }
 ?>
