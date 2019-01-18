@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+
 	<script type="text/javascript">
 
 		/*function mostrarReporteEmpleado(tipo){
@@ -22,17 +22,13 @@
 	        }
 	       	
 	       }
-	     }*/
-	     function iniciar() { 
-	     }
+	     }*/ 
 	</script>
 </head>
 <body>
 
-	<div class="page-wrapper">
+	
 	    <div class="container-fluid">
-	        <button id="notificacion" style="display: none;" class="tst1 btn btn-success2">Info Message</button>
-
 	        <div class="row page-titles">
 	            <div class="align-self-center" align="center">
 	                <h3 class="text-themecolor m-b-0 m-t-0">Viaticos Pendientes de Pago</h3>
@@ -54,18 +50,6 @@
                             </div>
                             <div align="right">
                             <button type="button" onclick="mostrarReporteEmpleado('vista')" class="btn waves-effect waves-light btn-success2"><i class="mdi mdi-view-dashboard"></i> Vista Previa</button>
-                            </div><br>
-                            <div class="card-body b-t">
-                            	<div class="demo-radio-button">
-                                    <input name="group1" type="radio" id="radio_pdf_pendiente" checked="">
-                                    <label for="radio_pdf_pendiente">PDF</label>
-                                    <input name="group1" type="radio" id="radio_excel_pendiente">
-                                    <label for="radio_excel_pendiente">EXCEL</label>
-                                </div>
-
-                            </div>
-                            <div align="right">
-                            <button type="button" onclick="mostrarReporteEmpleado('')" class="btn waves-effect waves-light btn-success2"><i class="mdi mdi-file-pdf"></i> Exportar Reporte</button>
                             </div>
 	                    </div>
 	                </div>
@@ -85,7 +69,7 @@
 	            </div>
 	        </div>
 	    </div>
-	</div>
+	
 
 
 </body>
