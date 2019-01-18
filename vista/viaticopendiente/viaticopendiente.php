@@ -4,25 +4,24 @@
 
 	<script type="text/javascript">
 
-		/*function mostrarReporteEmpleado(tipo){
-	       var id = $("#id_empleado").val();
-	       var xhr = "";
-	       if(id==""){
-	        // swal({ title: "¡Ups! Error", text: "Completa los campos.", type: "error", showConfirmButton: true });
-	       }else{
-	        
-	        if(document.getElementById('radio_pdf_pendiente').checked==true && tipo==""){
-	         	window.open(xhr+"index.php/informes/menu_reportes/reporte_viatico_pendiente_empleado/pdf/"+id,"_blank");
-	        }else if(document.getElementById('radio_excel_pendiente').checked==true && tipo==""){
-	        	window.open(xhr+"index.php/informes/menu_reportes/reporte_viatico_pendiente_empleado/excel/"+id,"_blank");
-	        }else{
-	           
-	        	var html="<embed src='"+xhr+"index.php/informes/menu_reportes/reporte_viatico_pendiente_empleado/vista/"+id+"'  width='780' height='400'>";
-    			$("#informe_vista").html(html);
-	        }
-	       	
-	       }
-	     }*/ 
+		function mostrarReporteEmpleado(funcion){
+	       var formData = new FormData();
+	       formData.append("funcion", funcion);
+	        $.ajax({
+	              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
+	              url: "http://viaticos.proyectotesisuesfmp.com/controlador/Menu_reportes.php",
+	              type: "post",
+	              dataType: "html",
+	              data: formData,
+	              crossDomain: true,
+	              cache: false,
+	              contentType: false,
+	              processData: false
+	          })
+	          .done(function(res1){
+	            $("#informe_vista").html(res1);
+	          }); 
+	     }
 	</script>
 </head>
 <body>
@@ -45,11 +44,27 @@
 							 	<h5>Empleado: <span class="text-danger">*</span></h5>
                                 <select id="id_empleado" name="id_empleado" class="select2" onchange="" style="width: 100%" required>
                                 <option value=''>[Elija el empleado]</option>
-                                
+                                <?php
+                                	$server   = "162.241.252.245";
+							      	$database = "proyedk4_WPZF0";
+							        $usuario  = "proyedk4_WPZF0";
+							        $clave    = "MAYO_nesa94"; 
+
+							      $conexion = mysqli_connect($server,$usuario,$clave,$database); 
+									$query_consulta_nr=mysqli_query($conexion,"SELECT * FROM sir_empleado");
+							      	while( $fila=mysqli_fetch_array($query_consulta_nr)){
+							            $empleado_NR_viatico[] = $fila;
+							         }
+									foreach ($empleado_NR_viatico as $fila2) {	
+								?>
+						<option class="m-l-50" value="<?php echo $fila2[7]; ?>" <?php /*if(isset($fila3)){ if($fila2->nr==$fila3->nr){ echo "selected"; }}*/ ?>><?php echo preg_replace ('/[ ]+/', ' ',$fila2[1]." ".$fila2[2]." ".$fila2[4]." ".$fila2[5]) ?></option>
+								<?php
+									}
+                                ?>
                                 </select>
                             </div>
                             <div align="right">
-                            <button type="button" onclick="mostrarReporteEmpleado('vista')" class="btn waves-effect waves-light btn-success2"><i class="mdi mdi-view-dashboard"></i> Vista Previa</button>
+                            <button type="button" onclick="mostrarReporteEmpleado('reporte_viatico_pendiente_empleado')" class="btn waves-effect waves-light btn-success2"><i class="mdi mdi-view-dashboard"></i> Vista Previa</button>
                             </div>
 	                    </div>
 	                </div>
