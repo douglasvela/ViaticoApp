@@ -4,6 +4,7 @@
 	<link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.min.css">
 	<script type="text/javascript" src="../../assets/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
 	<script type="text/javascript">
 
 		function mostrarReporteVPendiente(funcion){
@@ -84,4 +85,19 @@
 	        </div>
 	    </div>
 </body>
+<link href="../../assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="../../assets/plugins/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="../../assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinModern.css" rel="stylesheet">
+    <script  src="http://code.jquery.com/jquery-latest.js"></script> 
+    <script src="../../assets/js/jquery-3.2.1.min.js"></script>
+    <script src="../../assets/plugins/jquery/jquery.min.js"></script>
+    <link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <link href="../../assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="../../assets/css/style.css" rel="stylesheet">
+    <link href="../../assets/css/colors/blue.css" id="theme" rel="stylesheet">
+    
 </html>
