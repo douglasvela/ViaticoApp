@@ -11,7 +11,7 @@ function reporte_viatico_pendiente_empleado(){
 
       $conexion = mysqli_connect("162.241.252.245","proyedk4_WPZF0","MAYO_nesa94","proyedk4_WPZF0"); 
       
-      $cabecera_vista = '<table><tr>
+      $cabecera_vista = '<table class="table"><tr>
  		<td>
 		    
 		</td>
@@ -41,7 +41,7 @@ function reporte_viatico_pendiente_empleado(){
           
 
 		$cuerpo = '
-		<h6>NR: Empleado: '.($key[1]).'</h6>
+		<h6>&nbsp;&nbsp;&nbsp;NR: Empleado: '.($key[1]).'</h6>
 		<div class="table-responsive">
 			<table  class="table table-striped">
 				

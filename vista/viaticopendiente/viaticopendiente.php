@@ -67,15 +67,12 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <div id="informe_vista"></div>
+	            
 	            <div class="col-lg-8" id="cnt_form" style="display: block;">
-	                <div class="card">
-	                    <div class="card-header bg-success2" id="">
-	                        <h4 class="card-title m-b-0 text-white">Vista Preliminar</h4>
-	                    </div>
-	                    <div class="card-body b-t"  >
+	                <div class="card"> 
+	                    <div class=""  >
 							 <!-- <embed src="" width="770" height="400"> -->
-								
+								<div id="informe_vista"></div>
 	                    </div>
 	                </div>
 	            </div>
