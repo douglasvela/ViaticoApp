@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.min.css">
-	<script type="text/javascript" src="../../assets/plugins/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+	 
 	<script type="text/javascript">
 
 		function mostrarReporteVPendiente(funcion){
@@ -85,11 +82,5 @@
 	        </div>
 	    </div>
 </body>
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-      <script type="text/javascript" src="assets/plugins/bootstrap/js/popper.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/plugins/jquery/jquery.plugin.js"></script>
-    <script  src="http://code.jquery.com/jquery-latest.js"></script>
-    
+ 
 </html>
