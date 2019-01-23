@@ -7,6 +7,7 @@
 		function mostrarReporteVPendiente(funcion){
 	       var formData = new FormData();
 	       formData.append("funcion", funcion);
+	       formData.append("id_empleado", $("#id_empleado").val());
 	        $.ajax({
 	              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
 	              url: "http://viaticos.proyectotesisuesfmp.com/controlador/viaticopendiente.php",
@@ -71,7 +72,7 @@
                                 </select>
                             </div>
                             <div align="right">
-                            <button type="button" onclick="mostrarReporteVPendiente('reporte_viatico_pendiente_empleado')" class="btn waves-effect waves-light btn-success2"><i class="mdi mdi-view-dashboard"></i> Vista Previa</button>
+                            <button type="button" onclick="mostrarReporteVPendiente('reporte_viatico_pendiente_empleado')" class="btn waves-effect waves-light btn-success2"><i class="ti-clipboard"></i> Vista Previa</button>
                             </div>
 	                    </div>
 	                </div>

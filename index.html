@@ -74,21 +74,42 @@
               processData: false
           })
           .done(function(res1){
-            if(res1=="correcto"){
+           var arregloDeSubCadenas = res1.split(',');
+            if(arregloDeSubCadenas[0]=="correcto"){
               $("#form_menu").show();
               $("#form_inicio_sesion").hide();
               localStorage.setItem("usuario", $("#usuario").val());
+              localStorage.setItem("nr",arregloDeSubCadenas[1] );
             }else{
               $("#form_menu").hide();
               $("#form_inicio_sesion").show();
             }
           });
       }
+      function cargar_indicadores(){
+        var formData = new FormData();
+        formData.append("usuario", localStorage.getItem('usuario'));
+        formData.append("nr", localStorage.getItem('nr'));        
+        $.ajax({
+              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
+              url: "http://viaticos.proyectotesisuesfmp.com/controlador/indicadores.php",
+              type: "post",
+              dataType: "html",
+              data: formData,
+              crossDomain: true,
+              cache: false,
+              contentType: false,
+              processData: false
+          })
+          .done(function(res1){
+            $("#ind_inicio").html(res1);
+          });
+      }
     </script>
 </head>
 
 
-<body class="fix-header fix-sidebar card-no-border">
+<body class="fix-header fix-sidebar card-no-border" onload="cargar_indicadores()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->

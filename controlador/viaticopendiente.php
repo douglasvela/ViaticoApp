@@ -1,13 +1,14 @@
 <?php
 $funcion = $_POST['funcion'];
+$id_empleado = $_POST['id_empleado'];
 switch($funcion) {
         case 'reporte_viatico_pendiente_empleado': 
-            echo reporte_viatico_pendiente_empleado();
+            echo reporte_viatico_pendiente_empleado($id_empleado);
             break;
     }
 	
 
-function reporte_viatico_pendiente_empleado(){
+function reporte_viatico_pendiente_empleado($id_empleado){
 
       $conexion = mysqli_connect("162.241.252.245","proyedk4_WPZF0","MAYO_nesa94","proyedk4_WPZF0"); 
       
@@ -26,7 +27,7 @@ function reporte_viatico_pendiente_empleado(){
 
 	 	//$data = array('nr'=>'2588');
 		//$empleado_NR_viatico = $this->Reportes_viaticos_model->obtenerNREmpleadoViatico($data);
-		$query_consulta_nr=mysqli_query($conexion,"select * from org_usuario where nr='2588'");
+		$query_consulta_nr=mysqli_query($conexion,"select * from org_usuario where nr='".$id_empleado."'");
       	while( $fila=mysqli_fetch_array($query_consulta_nr)){
             $empleado_NR_viatico[] = $fila;
          }
@@ -34,7 +35,7 @@ function reporte_viatico_pendiente_empleado(){
 		
 		//$ids = array('nr' => '2588');
 		//$viatico = $this->Reportes_viaticos_model->obtenerListaviatico_pendiente($ids);
-		$query_consulta_viatico=mysqli_query($conexion,"SELECT * FROM `vyp_mision_oficial` WHERE `nr_empleado`='2588' and ( `estado` between '0' and '7')");
+		$query_consulta_viatico=mysqli_query($conexion,"SELECT * FROM `vyp_mision_oficial` WHERE `nr_empleado`='".$id_empleado."' and ( `estado` between '0' and '7')");
 		while( $fila=mysqli_fetch_array($query_consulta_viatico)){
             $viatico[] = $fila;
          }
