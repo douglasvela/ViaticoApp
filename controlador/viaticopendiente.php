@@ -8,13 +8,8 @@ switch($funcion) {
 	
 
 function reporte_viatico_pendiente_empleado(){
-	
 
       $conexion = mysqli_connect("162.241.252.245","proyedk4_WPZF0","MAYO_nesa94","proyedk4_WPZF0"); 
-      /*$query_consulta=mysqli_query($conexion,"select * from org_usuario");
-      while( $fila=mysqli_fetch_array($query_consulta)){
-            $data[] = $fila;
-         }		*/
       
       $cabecera_vista = '<table><tr>
  		<td>

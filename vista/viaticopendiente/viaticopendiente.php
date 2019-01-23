@@ -9,7 +9,7 @@
 	       formData.append("funcion", funcion);
 	        $.ajax({
 	              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
-	              url: "http://viaticos.proyectotesisuesfmp.com/controlador/Menu_reportes.php",
+	              url: "http://viaticos.proyectotesisuesfmp.com/controlador/viaticopendiente.php",
 	              type: "post",
 	              dataType: "html",
 	              data: formData,
@@ -40,7 +40,7 @@
 	                    <div class="card-body b-t">
 	                    	<div class="form-group">
 							 	<h5>Empleado: <span class="text-danger">*</span></h5>
-                                <select id="id_empleado" name="id_empleado" class="form-control" onchange="" style="width: 100%" required>
+                                <select id="id_empleado" name="id_empleado" class="select2" onchange="" style="width: 100%" required>
                                 <option value=''>[Elija el empleado]</option>
                                 <?php
                                 	$server   = "162.241.252.245";
@@ -67,6 +67,7 @@
 	                    </div>
 	                </div>
 	            </div>
+	            <div id="informe_vista"></div>
 	            <div class="col-lg-8" id="cnt_form" style="display: block;">
 	                <div class="card">
 	                    <div class="card-header bg-success2" id="">
@@ -74,9 +75,7 @@
 	                    </div>
 	                    <div class="card-body b-t"  >
 							 <!-- <embed src="" width="770" height="400"> -->
-								<div id="informe_vista"  >
-									
-								</div>
+								
 	                    </div>
 	                </div>
 	            </div>
