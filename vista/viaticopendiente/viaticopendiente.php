@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="../../assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 
 		function mostrarReporteVPendiente(funcion){
