@@ -43,6 +43,7 @@
                                 <select id="id_empleado" name="id_empleado" class="select2" onchange="" style="width: 100%" required>
                                 <option value=''>[Elija el empleado]</option>
                                 <?php
+                                	$usuario_sesion = $_POST['usuario'];
                                 	$server   = "162.241.252.245";
 							      	$database = "proyedk4_WPZF0";
 							        $usuario  = "proyedk4_WPZF0";
@@ -50,12 +51,20 @@
 
 							      $conexion = mysqli_connect($server,$usuario,$clave,$database); 
 									$query_consulta_nr=mysqli_query($conexion,"SELECT * FROM sir_empleado");
+
+									$query_nr_usuario_session=mysqli_query($conexion,"SELECT nr FROM org_usuario where usuario = '".$usuario_sesion."'");
+									while( $fila=mysqli_fetch_array($query_nr_usuario_session)){
+							            $usuario_nr_sess[] = $fila;
+							         }
+									foreach ($usuario_nr_sess as $fila_session_usuario) {}	
+
+
 							      	while( $fila=mysqli_fetch_array($query_consulta_nr)){
 							            $empleado_NR_viatico[] = $fila;
 							         }
 									foreach ($empleado_NR_viatico as $fila2) {	
 								?>
-						<option class="m-l-50" value="<?php echo $fila2[7]; ?>" <?php /*if(isset($fila3)){ if($fila2->nr==$fila3->nr){ echo "selected"; }}*/ ?>><?php echo preg_replace ('/[ ]+/', ' ',$fila2[1]." ".$fila2[2]." ".$fila2[4]." ".$fila2[5]) ?></option>
+						<option class="m-l-50" value="<?php echo $fila2[7]; ?>" <?php if(isset($fila_session_usuario)){ if($fila2[7]==$fila_session_usuario[0]){ echo "selected"; }} ?>><?php echo preg_replace ('/[ ]+/', ' ',$fila2[1]." ".$fila2[2]." ".$fila2[4]." ".$fila2[5]) ?></option>
 								<?php
 									} mysqli_close($conexion);
                                 ?>
@@ -67,7 +76,6 @@
 	                    </div>
 	                </div>
 	            </div>
-	            
 	            <div class="col-lg-8" id="cnt_form" style="display: block;">
 	                <div class="card"> 
 	                    <div class=""  >

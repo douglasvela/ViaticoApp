@@ -40,6 +40,8 @@
       } 
       function prueba_buscar() { 
         var formData = new FormData();
+        var usuario = localStorage.getItem('usuario');
+        formData.append("usuario", usuario);
         $.ajax({
               //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
               url: "http://viaticos.proyectotesisuesfmp.com/vista/viaticopendiente/viaticopendiente.php",
@@ -75,6 +77,7 @@
             if(res1=="correcto"){
               $("#form_menu").show();
               $("#form_inicio_sesion").hide();
+              localStorage.setItem("usuario", $("#usuario").val());
             }else{
               $("#form_menu").hide();
               $("#form_inicio_sesion").show();
