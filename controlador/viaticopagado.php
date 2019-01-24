@@ -1,26 +1,21 @@
 <?php
 $funcion = $_POST['funcion'];
 $id_empleado = $_POST['id_empleado'];
+$fecha_min = $_POST['fecha_min'];
+$fecha_max = $_POST['fecha_max'];
 switch($funcion) {
         case 'reporte_viatico_pendiente_empleado': 
-            echo reporte_viatico_pendiente_empleado($id_empleado);
+            echo reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max);
             break;
     }
 	
 
-function reporte_viatico_pendiente_empleado($id_empleado){
+function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
 
       $conexion = mysqli_connect("162.241.252.245","proyedk4_WPZF0","MAYO_nesa94","proyedk4_WPZF0"); 
       
-      $cabecera_vista = '<table style="font-size: 14;" class="table"><tr>
- 		<td>
-		    
-		</td>
-		<td width="950px"><h6><center>MINISTERIO DE TRABAJO Y PREVISION SOCIAL <br> UNIDAD FINANCIERA INSTITUCIONAL <br> FONDO CIRCULANTE DE MONTO FIJO <br> REPORTE VIATICOS PENDIENTE POR EMPLEADO</center><h6></td>
-		<td>
-		    
-		   
-		</td>
+     $cabecera_vista = '<table style="font-size: 14;" class="table"><tr> 
+		<td width="950px"><h6><center>MINISTERIO DE TRABAJO Y PREVISION SOCIAL <br> UNIDAD FINANCIERA INSTITUCIONAL <br> FONDO CIRCULANTE DE MONTO FIJO <br> REPORTE VIATICOS PAGADOS POR EMPLEADO</center><h6></td>
 	 	</tr></table>';
 	 	$fecha=strftime( "%d-%m-%Y - %H:%M:%S", time() );
 	 	//$pie = 'Usuario: '.$this->session->userdata('usuario_viatico').'    Fecha y Hora Creacion: '.$fecha.'||{PAGENO} de {nbpg} páginas';
@@ -28,21 +23,21 @@ function reporte_viatico_pendiente_empleado($id_empleado){
 	 	//$data = array('nr'=>'2588');
 		//$empleado_NR_viatico = $this->Reportes_viaticos_model->obtenerNREmpleadoViatico($data);
 		$query_consulta_nr=mysqli_query($conexion,"select * from org_usuario where nr='".$id_empleado."'");
-      	while( $fila=mysqli_fetch_array($query_consulta_nr)){
-            $empleado_NR_viatico[] = $fila;
+      	while( $fila_nombre=mysqli_fetch_array($query_consulta_nr)){
+            $empleado_nombre[] = $fila_nombre;
          }
-		foreach ($empleado_NR_viatico as $key) {	}
+		foreach ($empleado_nombre as $key_nombre) {	}
 		
 		//$ids = array('nr' => '2588');
 		//$viatico = $this->Reportes_viaticos_model->obtenerListaviatico_pendiente($ids);
-		$query_consulta_viatico=mysqli_query($conexion,"SELECT * FROM `vyp_mision_oficial` WHERE `nr_empleado`='".$id_empleado."' and ( `estado` between '0' and '7')");
+		$query_consulta_viatico=mysqli_query($conexion,"SELECT * FROM `vyp_mision_oficial` WHERE `nr_empleado`='".$id_empleado."' and estado = '8' and fecha_solicitud>='".date("Y-m-d",strtotime($fecha_min))."' and fecha_solicitud <= '".date("Y-m-d",strtotime($fecha_max))."'");
 		while( $fila=mysqli_fetch_array($query_consulta_viatico)){
             $viatico[] = $fila;
          }
           
 
 		$cuerpo = '
-		<h6 style="font-size: 12;">&nbsp;&nbsp;Empleado: '.($key[1]).'</h6>
+		<h6 style="font-size: 12;">&nbsp;&nbsp;Empleado: '.($key_nombre[1]).'</h6>
 		<div class="table-responsive">
 			<table  class="table table-striped">
 				

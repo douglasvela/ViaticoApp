@@ -38,13 +38,33 @@
             $("#ind_inicio").html(res1);
           }); 
       } 
-      function prueba_buscar() { 
+      function mostrarformVPendiente() { 
         var formData = new FormData();
         var usuario = localStorage.getItem('usuario');
         formData.append("usuario", usuario);
         $.ajax({
               //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
               url: "http://viaticos.proyectotesisuesfmp.com/vista/viaticopendiente/viaticopendiente.php",
+              type: "post",
+              dataType: "html",
+              data: formData,
+              crossDomain: true,
+              cache: false,
+              contentType: false,
+              processData: false
+          })
+          .done(function(res1){
+            $("#ind_inicio").html(res1);
+            $(".select2").select2();
+          }); 
+      } 
+      function mostrarformVPagado() { 
+        var formData = new FormData();
+        var usuario = localStorage.getItem('usuario');
+        formData.append("usuario", usuario);
+        $.ajax({
+              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
+              url: "http://viaticos.proyectotesisuesfmp.com/vista/viaticopagado/viaticopagado.php",
               type: "post",
               dataType: "html",
               data: formData,
@@ -141,8 +161,8 @@
                 <nav class="sidebar-nav" >
                     <ul  >
                         <li class="nav-small-cap">Víaticos</li>
-                         <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up"  ><i class="ti-timer"></i><span onclick="prueba_buscar()" class="hide-menu">Viáticos Pendientes</span></a></li>
-                         <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up"  ><i class="ti-layout-list-thumb"></i><span onclick="prueba_buscar()" class="hide-menu">Viáticos Pendientes</span></a></li>
+                         <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up"  ><i class="ti-timer"></i><span onclick="mostrarformVPendiente()" class="hide-menu">Viáticos Pendientes</span></a></li>
+                         <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up"  ><i class="ti-money"></i><span onclick="mostrarformVPagado()" class="hide-menu">Viáticos Pagado</span></a></li>
                         <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up" ><i class="mdi mdi-gauge"></i><span onclick="prueba_buscar()" class="hide-menu">Viáticos Pendientes</span></a></li>
                         <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up" ><i class="mdi mdi-gauge"></i><span onclick="prueba_buscar()" class="hide-menu">Viáticos Pendientes</span></a></li>
                         <li class="nav-devider"></li>  

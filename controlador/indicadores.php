@@ -69,40 +69,40 @@ $nr = $_POST['nr'];
 	<div class="row">       	
 		<?php if($fila_permisos_autorizar>0){ ?>
 	        <!-- Column -->
-	        <a class="col-md-6 col-lg-3 col-xlg-3" href="">
+	        <div class="col-md-6 col-lg-3 col-xlg-3" >
 	            <div class="card card-inverse card-dark">
 	                <div class="box text-center">
 	                    <h1 class="font-light text-white"><?php echo $fila_indicador_pv[0]; ?></h1>
 	                    <h5 class="text-white">Solicitudes para autorizar</h5>
 	                </div>
 	            </div>
-	        </a>
+	        </div>
 	        <!-- Column -->
 	    	<?php } ?>
 		<div class="col-md-6 col-lg-3 col-xlg-3">
-		    <a class="card card-inverse card-info" onclick="" href="#!">
+		    <div class="card card-inverse card-info" >
 		        <div class="box bg-info text-center">
 		            <h1 class="font-light text-white"><?php echo $fila_indicador_revision[0];?></h1>
 		            <h5 class="text-white">Solicitudes en revisión</h5>
 		        </div>
-		    </a>
+		    </div>
 		</div>
-		<a class="col-md-6 col-lg-3 col-xlg-3"  onclick="" href="#!">
+		<div class="col-md-6 col-lg-3 col-xlg-3">
 	            <div class="card card-primary card-inverse">
 	                <div class="box text-center">
 	                    <h1 class="font-light text-white"><?php echo $fila_indicador_observacion[0]; ?></h1>
 	                    <h5 class="text-white">Solicitudes observadas</h5>
 	                </div>
 	            </div>
-	    </a>
-	    <a class="col-md-6 col-lg-3 col-xlg-3" onclick="" href="#!">
+	    </div>
+	    <div class="col-md-6 col-lg-3 col-xlg-3" >
 	            <div class="card card-inverse card-success">
 	                <div class="box text-center">
 	                    <h1 class="font-light text-white"><?php echo $fila_pagada[0]; ?></h1>
 	                    <h5 class="text-white">Solicitudes pagadas</h5>
 	                </div>
 	            </div>
-	     </a>
+	     </div>
 	</div>
 	<div class="row page-titles">
            <div class="align-self-center" align="center">
@@ -111,39 +111,39 @@ $nr = $_POST['nr'];
     </div>
     <div class="row">
     	<?php if($fila_permisos_autorizar>0){?>
-    	<a class="col-md-6 col-lg-3 col-xlg-3" href="">
+    	<div class="col-md-6 col-lg-3 col-xlg-3" >
 	            <div class="card card-inverse card-dark">
 	                <div class="box text-center">
 	                    <h1 class="font-light text-white"><?php echo $fila_indicador_pa[0]; ?></h1>
 	                    <h5 class="text-white">Solicitudes para autorizar</h5>
 	                </div>
 	            </div>
-	        </a>
+	        </div>
 	      <?php }?>
     	 <div class="col-md-6 col-lg-3 col-xlg-3">
-	            <a class="card card-inverse card-info" onclick="" href="#!">
+	            <div class="card card-inverse card-info">
 	                <div class="box bg-info text-center">
 	                    <h1 class="font-light text-white"><?php echo $fila_pasaje_revision[0]; ?></h1>
 	                    <h5 class="text-white">Solicitudes en revisión</h5>
 	                </div>
-	            </a>
+	            </div>
 	    </div>
-		<a class="col-md-6 col-lg-3 col-xlg-3"  onclick="" href="#!">
+		<div class="col-md-6 col-lg-3 col-xlg-3"  >
 	            <div class="card card-primary card-inverse">
 	                <div class="box text-center">
 	                    <h1 class="font-light text-white"><?php echo $fila_pasaje_observado[0]; ?></h1>
 	                    <h5 class="text-white">Solicitudes observadas</h5>
 	                </div>
 	            </div>
-	    </a>
-	    <a class="col-md-6 col-lg-3 col-xlg-3" onclick="" href="#!">
+	    </div>
+	    <div class="col-md-6 col-lg-3 col-xlg-3" >
 	            <div class="card card-inverse card-success">
 	                <div class="box text-center">
 	                    <h1 class="font-light text-white"><?php echo $fila_pasaje_pagado[0]; ?></h1>
 	                    <h5 class="text-white">Solicitudes pagadas</h5>
 	                </div>
 	            </div>
-	        </a>
+	        </div>
     </div>
 </div>
 </body>
