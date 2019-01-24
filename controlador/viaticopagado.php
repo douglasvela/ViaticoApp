@@ -44,17 +44,15 @@ function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
 				<thead >
 
 					<tr>
-						<th scope="col" align="center" rowspan="2">Fecha Solicitud</th>
-						<th scope="col" align="center" rowspan="2">Fecha Inicio Mision</th>
-						<th scope="col" align="center" rowspan="2">Fecha Fin Mision</th>
-						<th scope="col" align="center" rowspan="2">Actividad</th>
-						<th scope="col" align="center" colspan="3">Tipo</th>
-						<th scope="col" align="center" rowspan="2">Total</th>						 
+						<th scope="col" align="center">Fecha Solicitud</th>
+						<th scope="col" align="center">Actividad</th>
+						<th scope="col" align="center">Viaticos</th>
+						<th scope="col" align="center">Pasajes</th>
+						<th scope="col" align="center">Alojamiento</th>
+						<th scope="col" align="center" >Total</th>						 
 					</tr>
 					<tr>
-						<th align="center">Viaticos</th>
-						<th align="center">Pasajes</th>
-						<th align="center">Alojamiento</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -84,9 +82,7 @@ function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
 					$cuerpo .= '
 						<tr>
 							<td>'.date('d-m-Y',strtotime($viaticos[5])).'</td>
-							<td>'.date('d-m-Y',strtotime($viaticos[3])).'</td>
-							<td>'.date('d-m-Y',strtotime($viaticos[4])).'</td>
-							<td></td>
+							<td>'.$viaticos[7].'</td>
 							<td>$'.number_format($totales_detalle[0],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[1],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[2],2,".",",").'</td>
@@ -102,7 +98,7 @@ function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
 				}
 				$cuerpo .= '
 					<tr>
-							<th colspan="4" align="right">Total</th>
+							<th colspan="2" align="right">Total</th>
 							<th>$'.number_format($suma_viaticos,2,".",",").'</th>
 							<th>$'.number_format($suma_pasajes,2,".",",").'</th>
 							<th>$'.number_format($suma_alojamientos,2,".",",").'</th>

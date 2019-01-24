@@ -3,16 +3,16 @@
 <head>
 	 
 	<script type="text/javascript">
-
+		$( document ).ready(function() {
+		    mostrarReporte('reporte_bitacora');
+		});
 		function mostrarReporte(funcion){
 	       var formData = new FormData();
 	       formData.append("funcion", funcion);
-	       formData.append("id_empleado", $("#id_empleado").val());
-	       formData.append("fecha_min", $("#fecha_min").val());
-	       formData.append("fecha_max", $("#fecha_max").val());
+	       formData.append("id_empleado", localStorage.getItem('nr')); 
 	        $.ajax({
 	              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
-	              url: "http://viaticos.proyectotesisuesfmp.com/controlador/viaticopagado.php",
+	              url: "http://viaticos.proyectotesisuesfmp.com/controlador/bitacora_personal_viaticos.php",
 	              type: "post",
 	              dataType: "html",
 	              data: formData,
@@ -27,15 +27,15 @@
 	     }
 	</script>
 </head>
-<body>
+<body onload="">
 	    <div class="container-fluid">
 	        <div class="row page-titles">
 	            <div class="align-self-center" align="center">
-	                <h3 class="text-themecolor m-b-0 m-t-0">Viaticos Pagados por Período</h3>
+	                <h3 class="text-themecolor m-b-0 m-t-0">Bitácora de Viáticos por Empleado</h3>
 	            </div>
 	        </div>
 	         <div class="row " id="cnt_form">
-	            <div class="col-lg-4"  style="display: block;">
+	            <div class="col-lg-4"  style="display: none;">
 	                <div class="card">
 	                    <div class="card-header bg-success2" id="">
 	                        <h4 class="card-title m-b-0 text-white">Datos</h4>
@@ -73,16 +73,9 @@
                                 ?>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                    <h5>Fecha Mínima: <span class="text-danger">*</span></h5>
-                                    <input type="date"  value="<?php echo date('d-m-Y'); ?>" class="form-control" id="fecha_min" name="fecha_min">
-                                </div>
-								<div class="form-group">
-                                    <h5>Fecha Maxima: <span class="text-danger">*</span></h5>
-                                    <input type="date" value="<?php echo date('d-m-Y'); ?>" class="form-control" id="fecha_max" name="fecha_max">
-                                </div>
+                             
                             <div align="right">
-                            <button type="button" onclick="mostrarReporte('reporte_viatico_pendiente_empleado')" class="btn waves-effect waves-light btn-success2"><i class="ti-clipboard"></i> Consultar</button>
+                            <button type="button" onclick="mostrarReporte('reporte_bitacora')" class="btn waves-effect waves-light btn-success2"><i class="ti-clipboard"></i> Consultar</button>
                             </div>
 	                    </div>
 	                </div>

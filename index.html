@@ -78,6 +78,23 @@
             $(".select2").select2();
           }); 
       } 
+      function mostrarBitacora() { 
+        var formData = new FormData();  
+        $.ajax({
+              //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
+              url: "http://viaticos.proyectotesisuesfmp.com/vista/bitacora_personal/bitacora_personal_viaticos.php",
+              type: "post",
+              dataType: "html",
+              data: formData,
+              crossDomain: true,
+              cache: false,
+              contentType: false,
+              processData: false
+          })
+          .done(function(res1){
+            $("#ind_inicio").html(res1);
+          }); 
+      } 
       function inicio_sesion(){
         var formData = new FormData();
         formData.append("usuario", $("#usuario").val());
@@ -125,6 +142,14 @@
             $("#ind_inicio").html(res1);
           });
       }
+      function CerrarSession(){
+        localStorage.setItem("usuario", '');
+        localStorage.setItem("nr", '');
+        $("#form_menu").hide();
+        $("#form_inicio_sesion").show();
+        $("#usuario").val("");
+        $("#contrasenia").val("");
+      }
     </script>
 </head>
 
@@ -159,13 +184,12 @@
         <aside class="left-sidebar"> 
             <div class="scroll-sidebar">  
                 <nav class="sidebar-nav" >
-                    <ul  >
+                    <ul>
                         <li class="nav-small-cap">Víaticos</li>
                          <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up"  ><i class="ti-timer"></i><span onclick="mostrarformVPendiente()" class="hide-menu">Viáticos Pendientes</span></a></li>
                          <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up"  ><i class="ti-money"></i><span onclick="mostrarformVPagado()" class="hide-menu">Viáticos Pagado</span></a></li>
-                        <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up" ><i class="mdi mdi-gauge"></i><span onclick="prueba_buscar()" class="hide-menu">Viáticos Pendientes</span></a></li>
-                        <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up" ><i class="mdi mdi-gauge"></i><span onclick="prueba_buscar()" class="hide-menu">Viáticos Pendientes</span></a></li>
-                        <li class="nav-devider"></li>  
+                        <li><a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up" ><i class="ti-more-alt"></i><span onclick="mostrarBitacora()" class="hide-menu">Bitácora Personal</span></a></li>
+                        
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -173,9 +197,7 @@
             <!-- End Sidebar scroll-->
             <!-- Bottom points-->
             <div class="sidebar-footer">
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+                <a href="#" class="waves-effect waves-dark nav-toggler hidden-md-up"  ><i onclick="CerrarSession()" class="ti-arrow-circle-left"></i><span  class="hide-menu"></span></a> </div>
             <!-- End Bottom points-->
         </aside>
          
