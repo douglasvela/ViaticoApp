@@ -44,6 +44,7 @@ function reporte_viatico_bitacora_empleado($id_empleado,$fecha_min,$fecha_max){
 					<tr>
 						<th scope="col" align="center">Fecha Solicitud</th>
 						<th scope="col" align="center">Actividad</th>
+						<th scope="col" align="center">Estado</th>
 						<th scope="col" align="center">Viaticos</th>
 						<th scope="col" align="center">Pasajes</th>
 						<th scope="col" align="center">Alojamiento</th>
@@ -77,10 +78,18 @@ function reporte_viatico_bitacora_empleado($id_empleado,$fecha_min,$fecha_max){
 						$suma_pasajes+=$totales_detalle[1];
 						$suma_alojamientos+=$totales_detalle[2];
 						$suma_total=$suma_viaticos+$suma_pasajes+$suma_alojamientos;
+
+						$query_estado=mysqli_query($conexion,"select * from vyp_estado_solicitud where id_estado_solicitud='".$viaticos[13]."'");
+						while( $filaestado=mysqli_fetch_array($query_estado)){
+				            $nombre_estado[] = $filaestado;
+				         }
+				         foreach ($nombre_estado as $nombre_estado_fila) {}
+
 					$cuerpo .= '
 						<tr>
 							<td>'.date('d-m-Y',strtotime($viaticos[5])).'</td>
 							<td>'.$viaticos[7].'</td>
+							<td>'.$nombre_estado_fila[1].'</td>
 							<td>$'.number_format($totales_detalle[0],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[1],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[2],2,".",",").'</td>
@@ -96,7 +105,7 @@ function reporte_viatico_bitacora_empleado($id_empleado,$fecha_min,$fecha_max){
 				}
 				$cuerpo .= '
 					<tr>
-							<th colspan="2" align="right">Total</th>
+							<th colspan="3" align="right">Total</th>
 							<th>$'.number_format($suma_viaticos,2,".",",").'</th>
 							<th>$'.number_format($suma_pasajes,2,".",",").'</th>
 							<th>$'.number_format($suma_alojamientos,2,".",",").'</th>
