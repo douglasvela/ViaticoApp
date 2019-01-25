@@ -88,5 +88,9 @@
 	        </div>
 	    </div>
 </body>
- 
+  <script>
+    $(document).ready(function(){
+      $(".container-fluid").css('padding','0');
+    });
+  </script>
 </html>
