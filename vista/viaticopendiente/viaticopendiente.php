@@ -31,10 +31,12 @@
 </head>
 <body>
 	    <div class="container-fluid">
-	        <div class="page-titles">
-	            <div class="align-self-center" align="center">
-	                <h3 class="text-themecolor">Viaticos Pendientes de Pago</h3>
-	            </div>
+	    	<div class="row">
+		        <div class="page-titles">
+		            <div class="align-self-center" align="center">
+		                <h3 class="text-themecolor">Viaticos Pendientes de Pago</h3>
+		            </div>
+		        </div>
 	        </div>
 	         <div class="row " id="cnt_form">
 	            <div class="col-lg-4"  style="display: block;">
