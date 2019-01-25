@@ -90,7 +90,7 @@
 </body>
   <script>
     $(document).ready(function(){
-      $(".container-fluid").css('padding','0');
+      $(".container-fluid").css('padding','0.5');
     });
   </script>
 </html>
