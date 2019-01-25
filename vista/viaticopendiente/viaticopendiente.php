@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 
+	 <style>
+	 	.container-fluid {
+		  padding: 0 !important;
+		}
+	 </style>
 	<script type="text/javascript">
 
 		function mostrarReporteVPendiente(funcion){
@@ -88,9 +92,5 @@
 	        </div>
 	    </div>
 </body>
-  <script>
-    $(document).ready(function(){
-      $(".container-fluid").css('padding','0.5');
-    });
-  </script>
+ 
 </html>
