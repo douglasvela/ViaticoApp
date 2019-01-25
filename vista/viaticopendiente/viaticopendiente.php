@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <style>
-	 	.container-fluid {
-		  padding: 0 !important;
-		}
-	 </style>
+	
 	<script type="text/javascript">
 
 		function mostrarReporteVPendiente(funcion){
@@ -31,12 +27,10 @@
 </head>
 <body>
 	    <div class="container-fluid">
-	    	<div class="row">
-		        <div class="page-titles">
-		            <div class="align-self-center" align="center">
-		                <h3 class="text-themecolor">Viaticos Pendientes de Pago</h3>
-		            </div>
-		        </div>
+	        <div class="row page-titles">
+	            <div class="align-self-center" align="center">
+	                <h3 class="text-themecolor m-b-0 m-t-0">Viaticos Pendientes de Pago</h3>
+	            </div>
 	        </div>
 	         <div class="row " id="cnt_form">
 	            <div class="col-lg-4"  style="display: block;">
