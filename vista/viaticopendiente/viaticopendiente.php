@@ -31,7 +31,7 @@
 </head>
 <body>
 	    <div class="container-fluid">
-	        <div class="row page-titles">
+	        <div class="page-titles">
 	            <div class="align-self-center" align="center">
 	                <h3 class="text-themecolor m-b-0 m-t-0">Viaticos Pendientes de Pago</h3>
 	            </div>
