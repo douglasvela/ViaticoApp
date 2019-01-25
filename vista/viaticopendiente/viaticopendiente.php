@@ -3,7 +3,9 @@
 <head>
 	
 	<script type="text/javascript">
-
+		$(document).ready(function(){
+			mostrarReporteVPendiente('reporte_viatico_pendiente_empleado');
+		});
 		function mostrarReporteVPendiente(funcion){
 	       var formData = new FormData();
 	       formData.append("funcion", funcion);
@@ -25,15 +27,15 @@
 	     }
 	</script>
 </head>
-<body>
+<body >
 	    <div class="container-fluid">
 	        <div class="row page-titles">
 	            <div class="align-self-center" align="center">
-	                <h3 class="text-themecolor m-b-0 m-t-0">Viaticos Pendientes de Pago</h3>
+	                <h3 class="text-themecolor m-b-0 m-t-0">Viáticos Pendientes de Pago</h3>
 	            </div>
 	        </div>
 	         <div class="row " id="cnt_form">
-	            <div class="col-lg-4"  style="display: block;">
+	            <div class="col-lg-4"  style="display: none;">
 	                <div class="card">
 	                    <div class="card-header bg-success2" id="">
 	                        <h4 class="card-title m-b-0 text-white">Datos</h4>

@@ -15,7 +15,7 @@ function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
       $conexion = mysqli_connect("162.241.252.245","proyedk4_WPZF0","MAYO_nesa94","proyedk4_WPZF0"); 
       
      $cabecera_vista = '<table style="font-size: 14;" class="table"><tr> 
-		<td width="950px"><h6><center>MINISTERIO DE TRABAJO Y PREVISION SOCIAL <br> UNIDAD FINANCIERA INSTITUCIONAL <br> FONDO CIRCULANTE DE MONTO FIJO <br> REPORTE VIATICOS PAGADOS POR EMPLEADO</center><h6></td>
+		<td width="950px"><h6><center>MINISTERIO DE TRABAJO Y PREVISION SOCIAL <br> UNIDAD FINANCIERA INSTITUCIONAL <br> FONDO CIRCULANTE DE MONTO FIJO <br> REPORTE VIÁTICOS PAGADOS POR EMPLEADO</center><h6></td>
 	 	</tr></table>';
 	 	$fecha=strftime( "%d-%m-%Y - %H:%M:%S", time() );
 	 	//$pie = 'Usuario: '.$this->session->userdata('usuario_viatico').'    Fecha y Hora Creacion: '.$fecha.'||{PAGENO} de {nbpg} páginas';
@@ -30,7 +30,7 @@ function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
 		
 		//$ids = array('nr' => '2588');
 		//$viatico = $this->Reportes_viaticos_model->obtenerListaviatico_pendiente($ids);
-		$query_consulta_viatico=mysqli_query($conexion,"SELECT * FROM `vyp_mision_oficial` WHERE `nr_empleado`='".$id_empleado."' and estado = '8' and fecha_solicitud>='".date("Y-m-d",strtotime($fecha_min))."' and fecha_solicitud <= '".date("Y-m-d",strtotime($fecha_max))."'");
+		$query_consulta_viatico=mysqli_query($conexion,"SELECT * FROM `vyp_mision_oficial` WHERE `nr_empleado`='".$id_empleado."' and estado = '8' and fecha_solicitud>='".date("Y-m-d",strtotime($fecha_min))."' and fecha_solicitud <= '".date("Y-m-d",strtotime($fecha_max))."' order by id_mision_oficial desc");
 		while( $fila=mysqli_fetch_array($query_consulta_viatico)){
             $viatico[] = $fila;
          }
@@ -46,7 +46,7 @@ function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
 					<tr>
 						<th scope="col" align="center">Fecha Solicitud</th>
 						<th scope="col" align="center">Actividad</th>
-						<th scope="col" align="center">Viaticos</th>
+						<th scope="col" align="center">Viáticos</th>
 						<th scope="col" align="center">Pasajes</th>
 						<th scope="col" align="center">Alojamiento</th>
 						<th scope="col" align="center" >Total</th>						 

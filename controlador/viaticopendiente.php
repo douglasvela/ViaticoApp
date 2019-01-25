@@ -16,7 +16,7 @@ function reporte_viatico_pendiente_empleado($id_empleado){
  		<td>
 		    
 		</td>
-		<td width="950px"><h6><center>MINISTERIO DE TRABAJO Y PREVISION SOCIAL <br> UNIDAD FINANCIERA INSTITUCIONAL <br> FONDO CIRCULANTE DE MONTO FIJO <br> REPORTE VIATICOS PENDIENTE POR EMPLEADO</center><h6></td>
+		<td width="950px"><h6><center>MINISTERIO DE TRABAJO Y PREVISION SOCIAL <br> UNIDAD FINANCIERA INSTITUCIONAL <br> FONDO CIRCULANTE DE MONTO FIJO <br> REPORTE VIÁTICOS PENDIENTE POR EMPLEADO</center><h6></td>
 		<td>
 		    
 		   
@@ -35,7 +35,7 @@ function reporte_viatico_pendiente_empleado($id_empleado){
 		
 		//$ids = array('nr' => '2588');
 		//$viatico = $this->Reportes_viaticos_model->obtenerListaviatico_pendiente($ids);
-		$query_consulta_viatico=mysqli_query($conexion,"SELECT * FROM `vyp_mision_oficial` WHERE `nr_empleado`='".$id_empleado."' and ( `estado` between '0' and '7')");
+		$query_consulta_viatico=mysqli_query($conexion,"SELECT * FROM `vyp_mision_oficial` WHERE `nr_empleado`='".$id_empleado."' and ( `estado` between '0' and '7') order by id_mision_oficial desc");
 		while( $fila=mysqli_fetch_array($query_consulta_viatico)){
             $viatico[] = $fila;
          }
@@ -51,7 +51,7 @@ function reporte_viatico_pendiente_empleado($id_empleado){
 					<tr>
 						<th scope="col" align="center">Fecha Solicitud</th>
 						<th scope="col" align="center">Actividad</th>
-						<th scope="col" align="center">Viaticos</th>
+						<th scope="col" align="center">Viáticos</th>
 						<th scope="col" align="center">Pasajes</th>
 						<th scope="col" align="center">Alojamiento</th>
 						<th scope="col" align="center" >Total</th>						 

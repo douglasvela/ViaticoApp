@@ -7,7 +7,7 @@
 		function mostrarReporte(funcion){
 	       var formData = new FormData();
 	       formData.append("funcion", funcion);
-	       formData.append("id_empleado", $("#id_empleado").val());
+	       formData.append("id_empleado", localStorage.getItem('nr'));
 	       formData.append("fecha_min", $("#fecha_min").val());
 	       formData.append("fecha_max", $("#fecha_max").val());
 	        $.ajax({
@@ -31,7 +31,7 @@
 	    <div class="container-fluid">
 	        <div class="row page-titles">
 	            <div class="align-self-center" align="center">
-	                <h3 class="text-themecolor m-b-0 m-t-0">Viaticos Pagados por Período</h3>
+	                <h3 class="text-themecolor m-b-0 m-t-0">Viáticos Pagados por Período</h3>
 	            </div>
 	        </div>
 	         <div class="row " id="cnt_form">
@@ -41,44 +41,12 @@
 	                        <h4 class="card-title m-b-0 text-white">Datos</h4>
 	                    </div>
 	                    <div class="card-body b-t">
-	                    	<div class="form-group">
-							 	<h5>Empleado: <span class="text-danger">*</span></h5>
-                                <select id="id_empleado" name="id_empleado" class="select2" onchange="" style="width: 100%" required>
-                                <option value=''>[Elija el empleado]</option>
-                                <?php
-                                	$usuario_sesion = $_POST['usuario'];
-                                	$server   = "162.241.252.245";
-							      	$database = "proyedk4_WPZF0";
-							        $usuario  = "proyedk4_WPZF0";
-							        $clave    = "MAYO_nesa94"; 
-
-							      $conexion = mysqli_connect($server,$usuario,$clave,$database); 
-									$query_consulta_nr=mysqli_query($conexion,"SELECT * FROM sir_empleado");
-
-									$query_nr_usuario_session=mysqli_query($conexion,"SELECT nr FROM org_usuario where usuario = '".$usuario_sesion."'");
-									while( $fila=mysqli_fetch_array($query_nr_usuario_session)){
-							            $usuario_nr_sess[] = $fila;
-							         }
-									foreach ($usuario_nr_sess as $fila_session_usuario) {}	
-
-
-							      	while( $fila=mysqli_fetch_array($query_consulta_nr)){
-							            $empleado_NR_viatico[] = $fila;
-							         }
-									foreach ($empleado_NR_viatico as $fila2) {	
-								?>
-						<option class="m-l-50" value="<?php echo $fila2[7]; ?>" <?php if(isset($fila_session_usuario)){ if($fila2[7]==$fila_session_usuario[0]){ echo "selected"; }} ?>><?php echo preg_replace ('/[ ]+/', ' ',$fila2[1]." ".$fila2[2]." ".$fila2[4]." ".$fila2[5]) ?></option>
-								<?php
-									} mysqli_close($conexion);
-                                ?>
-                                </select>
-                            </div>
                             <div class="form-group">
-                                    <h5>Fecha Mínima: <span class="text-danger">*</span></h5>
+                                    <h5>Desde: <span class="text-danger">*</span></h5>
                                     <input type="date"  value="<?php echo date('d-m-Y'); ?>" class="form-control" id="fecha_min" name="fecha_min">
                                 </div>
 								<div class="form-group">
-                                    <h5>Fecha Maxima: <span class="text-danger">*</span></h5>
+                                    <h5>Hasta: <span class="text-danger">*</span></h5>
                                     <input type="date" value="<?php echo date('d-m-Y'); ?>" class="form-control" id="fecha_max" name="fecha_max">
                                 </div>
                             <div align="right">
