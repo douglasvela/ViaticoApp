@@ -11,7 +11,7 @@ switch($funcion) {
 function reporte_viatico_bitacora_empleado($id_empleado,$fecha_min,$fecha_max){
 
       $conexion = mysqli_connect("162.241.252.245","proyedk4_WPZF0","MAYO_nesa94","proyedk4_WPZF0"); 
-      
+     
      $cabecera_vista = '<table style="font-size: 14;" class="table"><tr> 
 		<td width="950px"><h6><center>MINISTERIO DE TRABAJO Y PREVISION SOCIAL <br> UNIDAD FINANCIERA INSTITUCIONAL <br> FONDO CIRCULANTE DE MONTO FIJO <br> BITÁCORA DE VIÁTICOS POR EMPLEADO</center><h6></td>
 	 	</tr></table>';
@@ -35,7 +35,7 @@ function reporte_viatico_bitacora_empleado($id_empleado,$fecha_min,$fecha_max){
           
 
 		$cuerpo = '
-		<h6 style="font-size: 12;">&nbsp;&nbsp;Empleado: '.($key_nombre[1]).'</h6>
+		<h6 style="font-size: 12;">&nbsp;&nbsp;Empleado: '.($key_nombre[2]).'</h6>
 		<div class="table-responsive">
 			<table  class="table table-striped">
 				
@@ -84,11 +84,16 @@ function reporte_viatico_bitacora_empleado($id_empleado,$fecha_min,$fecha_max){
 				            $nombre_estado[] = $filaestado;
 				         }
 				         foreach ($nombre_estado as $nombre_estado_fila) {}
+				         $query_act=mysqli_query($conexion,"SELECT * FROM vyp_actividades WHERE id_vyp_actividades='".$viaticos[6]."'");
+						while( $query_act_fila=mysqli_fetch_array($query_act)){
+				            $query_act_filas[] = $query_act_fila;
+				         }
+				         foreach ($query_act_filas as $act_filas) {}
 
 					$cuerpo .= '
 						<tr>
 							<td>'.date('d-m-Y',strtotime($viaticos[5])).'</td>
-							<td>'.$viaticos[7].'</td>
+							<td>'.$act_filas[1].'</td>
 							<td>'.$nombre_estado_fila[1].'</td>
 							<td>$'.number_format($totales_detalle[0],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[1],2,".",",").'</td>

@@ -1,3 +1,6 @@
+ <?php
+	$usuario_sesion = $_POST['nr'];
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,36 +45,7 @@
 	                    </div>
 	                    <div class="card-body b-t">
 	                    	<div class="form-group">
-							 	<h5>Empleado: <span class="text-danger">*</span></h5>
-                                <select id="id_empleado" name="id_empleado" class="select2" onchange="" style="width: 100%" required>
-                                <option value=''>[Elija el empleado]</option>
-                                <?php
-                                	$usuario_sesion = $_POST['usuario'];
-                                	$server   = "162.241.252.245";
-							      	$database = "proyedk4_WPZF0";
-							        $usuario  = "proyedk4_WPZF0";
-							        $clave    = "MAYO_nesa94"; 
-
-							      $conexion = mysqli_connect($server,$usuario,$clave,$database); 
-									$query_consulta_nr=mysqli_query($conexion,"SELECT * FROM sir_empleado");
-
-									$query_nr_usuario_session=mysqli_query($conexion,"SELECT nr FROM org_usuario where usuario = '".$usuario_sesion."'");
-									while( $fila=mysqli_fetch_array($query_nr_usuario_session)){
-							            $usuario_nr_sess[] = $fila;
-							         }
-									foreach ($usuario_nr_sess as $fila_session_usuario) {}	
-
-
-							      	while( $fila=mysqli_fetch_array($query_consulta_nr)){
-							            $empleado_NR_viatico[] = $fila;
-							         }
-									foreach ($empleado_NR_viatico as $fila2) {	
-								?>
-						<option class="m-l-50" value="<?php echo $fila2[7]; ?>" <?php if(isset($fila_session_usuario)){ if($fila2[7]==$fila_session_usuario[0]){ echo "selected"; }} ?>><?php echo preg_replace ('/[ ]+/', ' ',$fila2[1]." ".$fila2[2]." ".$fila2[4]." ".$fila2[5]) ?></option>
-								<?php
-									} mysqli_close($conexion);
-                                ?>
-                                </select>
+                                	<input type="text" id="id_empleado" value="<?php echo $usuario_sesion;?>">
                             </div>
                             <div align="right">
                             <button type="button" onclick="mostrarReporteVPendiente('reporte_viatico_pendiente_empleado')" class="btn waves-effect waves-light btn-success2"><i class="ti-clipboard"></i> Consultar</button>

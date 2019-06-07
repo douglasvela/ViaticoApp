@@ -37,7 +37,7 @@ function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
           
 
 		$cuerpo = '
-		<h6 style="font-size: 12;">&nbsp;&nbsp;Empleado: '.($key_nombre[1]).'</h6>
+		<h6 style="font-size: 12;">&nbsp;&nbsp;Empleado: '.($key_nombre[2]).'</h6>
 		<div class="table-responsive">
 			<table  class="table table-striped">
 				
@@ -79,10 +79,15 @@ function reporte_viatico_pagado_empleado($id_empleado,$fecha_min,$fecha_max){
 						$suma_pasajes+=$totales_detalle[1];
 						$suma_alojamientos+=$totales_detalle[2];
 						$suma_total=$suma_viaticos+$suma_pasajes+$suma_alojamientos;
+						$query_act=mysqli_query($conexion,"SELECT * FROM vyp_actividades WHERE id_vyp_actividades='".$viaticos[6]."'");
+						while( $query_act_fila=mysqli_fetch_array($query_act)){
+				            $query_act_filas[] = $query_act_fila;
+				         }
+				         foreach ($query_act_filas as $act_filas) {}
 					$cuerpo .= '
 						<tr>
 							<td>'.date('d-m-Y',strtotime($viaticos[5])).'</td>
-							<td>'.$viaticos[7].'</td>
+							<td>'.$act_filas[1].'</td>
 							<td>$'.number_format($totales_detalle[0],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[1],2,".",",").'</td>
 							<td>$'.number_format($totales_detalle[2],2,".",",").'</td>

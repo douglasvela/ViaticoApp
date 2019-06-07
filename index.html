@@ -40,8 +40,8 @@
       } 
       function mostrarformVPendiente() { 
         var formData = new FormData();
-        var usuario = localStorage.getItem('usuario');
-        formData.append("usuario", usuario);
+        var usuario = localStorage.getItem('nr');
+        formData.append("nr", usuario);
         $.ajax({
               //url: "http://192.168.0.16/viaticoapp/indicadores_inicio.php",
               url: "http://viaticos.proyectotesisuesfmp.com/vista/viaticopendiente/viaticopendiente.php",
